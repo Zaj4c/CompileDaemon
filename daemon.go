@@ -179,7 +179,7 @@ func build() bool {
 func runBuildCommand(c string) error {
 	c = strings.TrimSpace(c)
 	args := strings.Split(c, " ")
-	if len(args) == 0 {
+	if args[0] == "" && len(args) == 1 {
 		return nil
 	}
 
