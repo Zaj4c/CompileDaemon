@@ -15,7 +15,7 @@ You can use the `go` tool to install `CompileDaemon`:
 
 ## Development
 
-You need to use Go 1.11 or higher to build Compile Daemon, and you need to set
+You need to use Go 1.16 or higher to build Compile Daemon, and you need to set
 the env var `GO111MODULE=on`, which enables you to develop outside of
 `$GOPATH/src`.
 
@@ -65,6 +65,13 @@ monitoring, such as a .git repository or emacs temporary files…
 If you want to monitor files other than .go and .c files you might…
 
     $ CompileDaemon -include=Makefile -include="*.less" -include="*.tmpl"
+
+## Security Considerations
+
+Beware that, in case you are using `CompileDaemon` in production to rebuild a
+binary (please explain to me why you would do this, but carry on), an attacker
+with write access is able to insert arbitrary code into your binary. So make
+sure that you secure write access to the file system appropriately.
 
 ## Common Issues
 
